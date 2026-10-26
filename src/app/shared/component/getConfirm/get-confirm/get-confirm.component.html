@@ -1,0 +1,6 @@
+<p>{{msg || "Are tou Sure??"}}</p>
+
+<div class="d-flex justify-content-between">
+    <button (click)="onClose(true)" color="primary" mat-stroked-button>Yes</button>
+    <button (click)="onClose(false)" color="warn" mat-stroked-button>No</button>
+</div>
