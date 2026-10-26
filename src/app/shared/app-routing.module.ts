@@ -12,10 +12,6 @@ const routes : Routes = [
         component : ProductDashComponent
     },
     {
-        path : 'home',
-        component : ProductDashComponent
-    },
-    {
         path : 'product',
         component : ProductDashComponent
     },
