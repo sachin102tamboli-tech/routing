@@ -1,0 +1,17 @@
+<div class="row">
+    <div class="col-12">
+        <button routerLink="add" class="btn btn-outline-primary mb-3">Add User</button>
+    </div>
+    <div class="col-md-4">
+        <ul class="list-group">
+            <li *ngFor="let user of userArray"
+            class="list-group-item"
+            [routerLink]="user.Uid"
+            >
+            {{user.userName}} 
+            
+
+            </li>
+        </ul>
+    </div>
+</div>

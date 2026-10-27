@@ -75,7 +75,7 @@ export class ProductFormComponent implements OnInit {
       this._product.updtProd(updtProd)
       .subscribe({
         next : res => {
-          this.productForm.reset,
+          this.productForm.reset(),
           this._router.navigate(['product'])
         },
         error : err => {

@@ -15,6 +15,10 @@ import { HttpClientModule} from '@angular/common/http';
 import { HomeComponent } from './shared/component/home/home/home.component';
 import { GetConfirmComponent } from './shared/component/getConfirm/get-confirm/get-confirm.component' 
 import {MatDialogModule} from '@angular/material/dialog';
+import { UserDashComponent } from './shared/component/user/user-dash/user-dash.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatChipsModule} from '@angular/material/chips';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +29,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     UserFormsComponent,
     NavbarComponent,
     HomeComponent,
-    GetConfirmComponent
+    GetConfirmComponent,
+    UserDashComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +38,9 @@ import {MatDialogModule} from '@angular/material/dialog';
     AppRouingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatDialogModule
+    MatDialogModule,
+    MatCardModule,
+    MatChipsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

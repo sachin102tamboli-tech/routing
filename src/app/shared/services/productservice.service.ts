@@ -46,4 +46,5 @@ POST_URL : string = `${this.BASE_URL}/product.json`
     let REMOVE_URL = `${this.BASE_URL}/product/${id}.json`;
     return this._http.delete(REMOVE_URL)
   }
+  
 }

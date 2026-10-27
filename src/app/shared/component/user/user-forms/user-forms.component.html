@@ -1,1 +1,153 @@
-<p>user-forms works!</p>
+<mat-card class="mt-0 mb-3">
+  <mat-card-content>
+
+    <h3 class="fw-weight-bold">
+      {{ isInEditMode ? 'Update User' : 'Add User' }}
+    </h3>
+
+    <form [formGroup]="userForm" (ngSubmit)="onUserAdd()">
+
+      <div class="form-group">
+        <label for="userName">User Name</label>
+        <input type="text" id="userName" formControlName="userName" class="form-control">
+      </div>
+
+      <div class="form-group mt-2">
+        <label for="userRole">User Role</label>
+        <select id="userRole" formControlName="userRole" class="form-control">
+          <option value="Candidate">Candidate</option>
+          <option value="Admin">Admin</option>
+        </select>
+      </div>
+
+      <div class="form-group mt-3">
+        <label for="profileDescription">Profile Description</label>
+        <textarea rows="4" id="profileDescription" formControlName="profileDescription" class="form-control"></textarea>
+      </div>
+
+      <div class="form-group mt-2">
+        <label for="profileImage">Profile Image</label>
+        <input type="text" id="profileImage" formControlName="profileImage" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="experienceYears">Experience Years</label>
+        <select id="experienceYears" formControlName="experienceYears" class="form-control">
+          <option value="1 to 3 years">1 to 3 Years</option>
+          <option value="3 to 5 years">3 to 5 Years</option>
+          <option value="5 to 7 years">5 to 7 Years</option>
+          <option value="7 to 10 years">7 to 10 Years</option>
+          <option value="10 years">10 Years</option>
+        </select>
+      </div>
+
+      <div formArrayName="skills">
+        <h6 class="mt-3">Skills</h6>
+
+        <div class="row mb-2" *ngFor="let skill of skillsArray.controls; let i = index">
+
+          <div class="col-10">
+            <div class="form-group">
+              <input [formControlName]="i" type="text" class="form-control">
+            </div>
+          </div>
+
+          <div class="col-2" *ngIf="i>0">
+            <button (click)="onRemove(i)" type="button" class="btn btn-sm btn-outline-danger">
+              Remove
+            </button>
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <button (click)="onSkillAdd()" type="button" mat-raised-button color="primary">Add Skills</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group mt-3">
+        <label for="isActive">Is Active</label>
+        <select id="isActive" formControlName="isActive" class="form-control">
+          <option [ngValue]="true">Yes</option>
+          <option [ngValue]="false">No</option>
+        </select>
+      </div>
+
+      <div formGroupName="address" class="mt-4">
+
+        <div class="row">
+
+
+          <div class="col-md-6" formGroupName="current">
+
+            <h5 class="fw-bold">Current Address</h5>
+
+            <div class="form-group">
+              <label for="c-country">Country*</label>
+              <input type="text" id="c-country" formControlName="country" class="form-control">
+            </div>
+
+            <div class="form-group">
+              <label for="c-state">State*</label>
+              <input type="text" id="c-state" formControlName="state" class="form-control">
+            </div>
+
+            <div class="form-group">
+              <label for="c-city">City*</label>
+              <input type="text" id="c-city" formControlName="city" class="form-control">
+            </div>
+
+            <div class="form-group">
+              <label for="c-zipcode">Zipcode*</label>
+              <input type="text" id="c-zipcode" formControlName="zipcode" class="form-control">
+            </div>
+
+          </div>
+
+
+          <div class="col-md-6" formGroupName="permanent">
+
+            <h5 class="fw-bold">Permanent Address</h5>
+
+            <div class="form-group">
+              <label for="p-country">Country*</label>
+              <input type="text" id="p-country" formControlName="country" class="form-control">
+            </div>
+
+            <div class="form-group">
+              <label for="p-state">State*</label>
+              <input type="text" id="p-state" formControlName="state" class="form-control">
+            </div>
+
+            <div class="form-group">
+              <label for="p-city">City*</label>
+              <input type="text" id="p-city" formControlName="city" class="form-control">
+            </div>
+
+            <div class="form-group">
+              <label for="p-zipcode">Zipcode*</label>
+              <input type="text" id="p-zipcode" formControlName="zipcode" class="form-control">
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+      <div class="form-check mt-3">
+        <input type="checkbox" id="isAddSame" class="form-check-input" formControlName="isAddSame">
+
+        <label class="form-check-label" for="isAddSame">
+          Current Address and Permanent Address are Same
+        </label>
+      </div>
+
+      <button *ngIf="!isInEditMode" mat-raised-button color="primary" class="mt-4"> Add User
+      </button>
+      <button (click)="onUpdate()" *ngIf="isInEditMode" mat-raised-button color="warn" type="button">Update button</button>
+
+    </form>
+
+  </mat-card-content>
+</mat-card>

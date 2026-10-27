@@ -4,6 +4,8 @@ import { UserDetailsComponent } from "./component/user/user-details/user-details
 import { NgModule } from "@angular/core";
 import { ProductFormComponent } from "./component/product/product-form/product-form.component";
 import { ProductCardComponent } from "./component/product/product-card/product-card.component";
+import { UserFormsComponent } from "./component/user/user-forms/user-forms.component";
+import { UserDashComponent } from "./component/user/user-dash/user-dash.component";
 
 
 const routes : Routes = [
@@ -33,7 +35,19 @@ const routes : Routes = [
     },
     {
         path : 'user',
+        component : UserDashComponent
+    },
+    {
+        path : 'user/add',
+        component : UserFormsComponent
+    },
+    {
+        path : 'user/:id',
         component : UserDetailsComponent
+    },
+    {
+        path : 'user/:id/edit',
+        component : UserFormsComponent 
     }
 ]
 
